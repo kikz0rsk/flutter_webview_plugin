@@ -89,11 +89,7 @@ class WebviewManager {
                 if (event.getAction() == KeyEvent.ACTION_DOWN) {
                     switch (keyCode) {
                         case KeyEvent.KEYCODE_BACK:
-                            if (webView.canGoBack()) {
-                                webView.goBack();
-                            } else {
-                                close();
-                            }
+                            FlutterWebviewPlugin.channel.invokeMethod("onBackPressed", null);
                             return true;
                     }
                 }
